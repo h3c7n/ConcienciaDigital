@@ -90,6 +90,9 @@
             padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            position: relative;
+            cursor: pointer;
+            pointer-events: auto;
         }
 
         .threat-card:hover {
@@ -105,6 +108,162 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: #e74c3c;
+        }
+
+        .expanded-content {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            overflow-y: auto;
+            transition: all 0.3s ease-in-out;
+            pointer-events: none;
+        }
+
+        .expanded-content.active {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2c3e50;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .close-button:hover {
+            background: #f0f0f0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .content-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h5 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .content-section ul {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .expanded-content {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+
+        /* Adicionar estilo para scrollbar personalizado */
+        .expanded-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .expanded-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .expanded-content::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .expanded-content::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .content-section h4 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .sub-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .sub-section h6 {
+            color: #e74c3c;
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+
+        .bullet-list {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bullet-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        /* Prevent hover effects when modal is open */
+        body.modal-open .threat-card:hover {
+            transform: none;
         }
     </style>
 </head>
@@ -134,31 +293,328 @@
                     <div class="threat-icon">🎮</div>
                     <h3>Jogos Online</h3>
                     <p>Riscos de exposição a conteúdo inadequado, cyberbullying e predadores online em plataformas de jogos.</p>
+                    <div class="expanded-content">
+                        <button class="close-button" onclick="closeExpandedContent(event)">×</button>
+                        <h4>Jogos Online: Riscos e Proteção</h4>
+                        
+                        <div class="sub-section">
+                            <h5>Exposição a Conteúdo Inadequado</h5>
+                            <p>Mesmo com classificações etárias, jogos online podem expor crianças a conteúdo impróprio:</p>
+                            <h6>Riscos Principais:</h6>
+                            <ul class="bullet-list">
+                                <li>Linguagem ofensiva em chats</li>
+                                <li>Conteúdo sexualmente sugestivo</li>
+                                <li>Violência gráfica</li>
+                                <li>Temas adultos inadequados</li>
+                            </ul>
+                            <h6>Recomendações:</h6>
+                            <ul class="bullet-list">
+                                <li>Verifique sempre a classificação etária</li>
+                                <li>Pesquise reviews e opiniões de outros pais</li>
+                                <li>Jogue junto nas primeiras sessões</li>
+                                <li>Configure filtros de conteúdo</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Cyberbullying e Interações Perigosas</h5>
+                            <div class="warning-box">
+                                <strong>Atenção:</strong> Predadores podem se disfarçar como jogadores amigáveis para ganhar a confiança.
+                            </div>
+                            <h6>Manifestações de Cyberbullying:</h6>
+                            <ul class="bullet-list">
+                                <li>Insultos e humilhação em chats</li>
+                                <li>Exclusão deliberada de grupos</li>
+                                <li>Ameaças e intimidação</li>
+                                <li>Compartilhamento de informações privadas</li>
+                            </ul>
+                            <h6>Medidas de Proteção:</h6>
+                            <ul class="bullet-list">
+                                <li>Configure privacidade para limitar interações</li>
+                                <li>Desative chats quando necessário</li>
+                                <li>Ensine sobre não compartilhar dados pessoais</li>
+                                <li>Incentive denúncias de comportamento suspeito</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Controle de Gastos</h5>
+                            <h6>Riscos Financeiros:</h6>
+                            <ul class="bullet-list">
+                                <li>Microtransações e compras in-game</li>
+                                <li>Loot boxes e itens aleatórios</li>
+                                <li>Passes de temporada</li>
+                                <li>Pressão social para compras</li>
+                            </ul>
+                            <h6>Controle e Prevenção:</h6>
+                            <ul class="bullet-list">
+                                <li>Desative compras in-app</li>
+                                <li>Use controles parentais para transações</li>
+                                <li>Estabeleça limites de gastos</li>
+                                <li>Monitore extratos regularmente</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Prevenção ao Vício</h5>
+                            <h6>Sinais de Alerta:</h6>
+                            <ul class="bullet-list">
+                                <li>Perda de interesse em outras atividades</li>
+                                <li>Irritabilidade quando não está jogando</li>
+                                <li>Problemas de sono</li>
+                                <li>Queda no rendimento escolar</li>
+                                <li>Isolamento social</li>
+                            </ul>
+                            <h6>Estratégias de Controle:</h6>
+                            <ul class="bullet-list">
+                                <li>Estabeleça limites claros de tempo</li>
+                                <li>Crie horários específicos para jogos</li>
+                                <li>Incentive atividades offline</li>
+                                <li>Mantenha zonas livres de tela</li>
+                                <li>Busque ajuda profissional se necessário</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="threat-card">
                     <div class="threat-icon">💬</div>
                     <h3>Redes Sociais</h3>
                     <p>Exposição excessiva, compartilhamento de dados pessoais e contato com estranhos em redes sociais.</p>
+                    <div class="expanded-content">
+                        <button class="close-button">×</button>
+                        <h4>Redes Sociais: Riscos e Proteção</h4>
+                        
+                        <div class="sub-section">
+                            <h5>Exposição e Privacidade</h5>
+                            <div class="warning-box">
+                                <strong>Importante:</strong> Informações compartilhadas online podem permanecer disponíveis indefinidamente.
+                            </div>
+                            <h6>Riscos de Exposição:</h6>
+                            <ul class="bullet-list">
+                                <li>Compartilhamento excessivo de informações pessoais</li>
+                                <li>Fotos e vídeos comprometedores</li>
+                                <li>Localização em tempo real</li>
+                                <li>Detalhes da rotina diária</li>
+                            </ul>
+                            <h6>Medidas de Proteção:</h6>
+                            <ul class="bullet-list">
+                                <li>Configure perfis como privados</li>
+                                <li>Revise configurações de privacidade regularmente</li>
+                                <li>Limite informações pessoais compartilhadas</li>
+                                <li>Desative localização quando não necessária</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Interações Online</h5>
+                            <h6>Riscos de Interação:</h6>
+                            <ul class="bullet-list">
+                                <li>Contato com estranhos mal-intencionados</li>
+                                <li>Perfis falsos e golpes</li>
+                                <li>Pressão social e FOMO (medo de ficar de fora)</li>
+                                <li>Exposição a conteúdo inadequado</li>
+                            </ul>
+                            <h6>Recomendações:</h6>
+                            <ul class="bullet-list">
+                                <li>Aceite apenas conexões conhecidas</li>
+                                <li>Verifique a autenticidade de perfis</li>
+                                <li>Estabeleça limites de tempo de uso</li>
+                                <li>Monitore interações suspeitas</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="threat-card">
                     <div class="threat-icon">🔒</div>
                     <h3>Privacidade de Dados</h3>
                     <p>Vazamento de informações pessoais, roubo de identidade e ameaças à privacidade digital.</p>
+                    <div class="expanded-content">
+                        <button class="close-button">×</button>
+                        <h4>Proteção de Dados Pessoais</h4>
+                        
+                        <div class="sub-section">
+                            <h5>Segurança de Dados</h5>
+                            <h6>Ameaças Comuns:</h6>
+                            <ul class="bullet-list">
+                                <li>Roubo de identidade digital</li>
+                                <li>Vazamento de dados pessoais</li>
+                                <li>Acesso não autorizado a contas</li>
+                                <li>Phishing e golpes online</li>
+                            </ul>
+                            <h6>Práticas de Segurança:</h6>
+                            <ul class="bullet-list">
+                                <li>Use senhas fortes e diferentes para cada conta</li>
+                                <li>Ative autenticação em dois fatores</li>
+                                <li>Evite redes Wi-Fi públicas não seguras</li>
+                                <li>Mantenha softwares atualizados</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Proteção contra Golpes</h5>
+                            <div class="warning-box">
+                                <strong>Alerta:</strong> Nunca compartilhe senhas ou códigos de verificação com ninguém.
+                            </div>
+                            <h6>Sinais de Alerta:</h6>
+                            <ul class="bullet-list">
+                                <li>Ofertas muito boas para ser verdade</li>
+                                <li>Pedidos urgentes de informação pessoal</li>
+                                <li>E-mails ou mensagens suspeitas</li>
+                                <li>Links desconhecidos</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="threat-card">
                     <div class="threat-icon">⚠️</div>
                     <h3>Cyberbullying</h3>
                     <p>Assédio online, intimidação e comportamentos prejudiciais através de plataformas digitais.</p>
+                    <div class="expanded-content">
+                        <button class="close-button">×</button>
+                        <h4>Combate ao Cyberbullying</h4>
+                        
+                        <div class="sub-section">
+                            <h5>Identificação e Prevenção</h5>
+                            <h6>Formas de Cyberbullying:</h6>
+                            <ul class="bullet-list">
+                                <li>Mensagens de ódio e ameaças</li>
+                                <li>Disseminação de rumores online</li>
+                                <li>Exclusão social digital</li>
+                                <li>Compartilhamento de conteúdo humilhante</li>
+                            </ul>
+                            <h6>Sinais de Alerta:</h6>
+                            <ul class="bullet-list">
+                                <li>Mudanças repentinas de comportamento</li>
+                                <li>Evitar usar dispositivos ou redes sociais</li>
+                                <li>Ansiedade ao receber mensagens</li>
+                                <li>Isolamento social</li>
+                            </ul>
+                        </div>
+
+                        <div class="sub-section">
+                            <h5>Como Agir</h5>
+                            <div class="warning-box">
+                                <strong>Importante:</strong> Mantenha evidências do cyberbullying (capturas de tela, mensagens).
+                            </div>
+                            <h6>Medidas a Tomar:</h6>
+                            <ul class="bullet-list">
+                                <li>Não responda às provocações</li>
+                                <li>Bloqueie o agressor</li>
+                                <li>Denuncie à plataforma</li>
+                                <li>Busque apoio de adultos de confiança</li>
+                                <li>Procure ajuda profissional se necessário</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Adicionar overlay fora dos cards -->
+    <div class="overlay"></div>
+
     <footer>
         <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.threat-card');
+            const overlay = document.querySelector('.overlay');
+            let isTransitioning = false;
+            let activeContent = null;
+
+            function showExpandedContent(event) {
+                if (isTransitioning || activeContent) return;
+                
+                const card = event.currentTarget;
+                const content = card.querySelector('.expanded-content');
+                
+                if (content) {
+                    isTransitioning = true;
+                    activeContent = content;
+                    
+                    // Prevent hover effects while modal is open
+                    card.style.pointerEvents = 'none';
+                    
+                    overlay.classList.add('active');
+                    content.classList.add('active');
+                    document.body.classList.add('modal-open');
+                    
+                    setTimeout(() => {
+                        isTransitioning = false;
+                        // Restore pointer events to modal content
+                        content.style.pointerEvents = 'auto';
+                    }, 300);
+                }
+            }
+
+            function closeExpandedContent(event) {
+                if (isTransitioning || !activeContent) return;
+                
+                event.stopPropagation();
+                isTransitioning = true;
+                
+                activeContent.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('modal-open');
+                
+                // Find and reset the parent card
+                const parentCard = activeContent.closest('.threat-card');
+                if (parentCard) {
+                    setTimeout(() => {
+                        parentCard.style.pointerEvents = 'auto';
+                    }, 300);
+                }
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                    activeContent = null;
+                }, 300);
+            }
+
+            // Event Listeners
+            cards.forEach(card => {
+                card.addEventListener('click', showExpandedContent);
+            });
+
+            overlay.addEventListener('click', closeExpandedContent);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && activeContent) {
+                    closeExpandedContent(event);
+                }
+            });
+
+            // Close buttons
+            const closeButtons = document.querySelectorAll('.close-button');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    closeExpandedContent(event);
+                });
+            });
+        });
+    </script>
+    <style>
+        @media (max-width: 768px) {
+            .sub-section {
+                padding: 0.8rem;
+            }
+            
+            .bullet-list {
+                padding-left: 1rem;
+            }
+            
+            .expanded-content {
+                padding: 1.5rem;
+                max-height: 90vh;
+            }
+        }
+    </style>
 </body>
 </html>
