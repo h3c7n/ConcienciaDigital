@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciência Digital - Segurança Digital e Controle Parental</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f6fa;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                padding: 0.3rem 0.7rem;
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            nav ul {
+                gap: 0.3rem;
+            }
+
+            nav a {
+                padding: 0.2rem 0.5rem;
+                font-size: 13px;
+            }
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .section-card {
+            border: 1px solid #e1e1e1;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .section-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .section-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .faq-section {
+            margin-top: 4rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            padding: 1rem;
+            text-align: left;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: background 0.3s;
+        }
+
+        .faq-trigger:hover {
+            background: #e9ecef;
+        }
+
+        .faq-content {
+            padding: 1rem;
+            background: white;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: #ecf0f1;
+        }
+
+        @media screen and (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Consciência Digital</a></h1>
+        <p>Seu guia para segurança digital e controle parental</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="pages/seguranca-online.html">Segurança Digital</a></li>
+            <li><a href="pages/sobre.html">Sobre Nós</a></li>
+            <li><a href="pages/contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <section id="inicio">
+            <h2>Bem-vindo à Consciência Digital</h2>
+            <div class="section-grid">
+                <div class="section-card">
+                    </li><a href="pages/seguranca-online.html"<h3>Segurança Online</h3></a></li>
+                    <p>Aprenda como proteger você e sua família no ambiente digital.</p>
+                </div>
+                <div class="section-card">
+                    <h3>Controle Parental</h3>
+                    <p>Ferramentas e guias para garantir a segurança das crianças online.</p>
+                </div>
+                <div class="section-card">
+                    <h3>Recursos Educacionais</h3>
+                    <p>Materiais e conteúdos para educação digital responsável.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Perguntas Frequentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            Qual a idade ideal para começar?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>A recomendação varia conforme a plataforma e maturidade da criança. Em geral, 13 anos é a idade mínima para redes sociais.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            Como monitorar sem invadir a privacidade?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>O equilíbrio entre monitoramento e privacidade é fundamental. A comunicação aberta e a confiança são a base para um monitoramento eficaz. Em vez de espionar, converse regularmente com seu filho sobre suas atividades online, os sites e aplicativos que usa e as pessoas com quem interage.</p>
+                            <p>Explique os riscos potenciais e a importância da segurança online. Utilize ferramentas de controle parental de forma transparente, explicando seu propósito e envolvendo seu filho nas configurações sempre que possível.</p>
+                            <p>O objetivo não é a vigilância constante, mas sim a orientação e o apoio para que ele aprenda a navegar no mundo digital de forma segura e responsável.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            O que fazer em caso de cyberbullying?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>O cyberbullying é uma experiência dolorosa e séria. Se seu filho relatar ou você suspeitar que ele está sendo vítima de cyberbullying:</p>
+                            <ul>
+                                <li>Priorize o apoio emocional</li>
+                                <li>Ouça-o com atenção e valide seus sentimentos</li>
+                                <li>Documente as evidências (mensagens, capturas de tela)</li>
+                                <li>Bloqueie o agressor e denuncie à plataforma</li>
+                                <li>Considere ajuda profissional se necessário</li>
+                                <li>Comunique-se com a escola</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            Como definir limites de tempo de tela?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>Estabeleça limites de forma colaborativa:</p>
+                            <ul>
+                                <li>Envolva seu filho na definição dos limites</li>
+                                <li>Explique os motivos (sono, atividades físicas, etc.)</li>
+                                <li>Use aplicativos de controle parental</li>
+                                <li>Seja um modelo de uso equilibrado</li>
+                                <li>Ofereça alternativas offline atraentes</li>
+                                <li>Mantenha consistência, mas seja flexível quando apropriado</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            Quais são os sinais de problemas?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>Fique atento aos seguintes sinais:</p>
+                            <ul>
+                                <li>Isolamento social</li>
+                                <li>Irritabilidade quando longe dos dispositivos</li>
+                                <li>Queda no desempenho escolar</li>
+                                <li>Alterações no sono</li>
+                                <li>Preocupação excessiva com imagem online</li>
+                                <li>Mudanças repentinas de humor</li>
+                                <li>Segredo excessivo sobre atividades online</li>
+                                <li>Mensagens de números desconhecidos</li>
+                            </ul>
+                            <p>Se observar estes sinais, busque diálogo aberto e, se necessário, ajuda profissional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/faq.js"></script>
+</body>
+</html>

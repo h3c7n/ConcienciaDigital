@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Consciência Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            color: #000;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: #000;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            color: #000;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .whatsapp-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .whatsapp-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .whatsapp-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .whatsapp-description {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">Consciência Digital</a></h1>
+        <p>Seu guia para segurança digital e controle parental</p>
+    </header>
+
+    <main class="contact-container">
+        <div class="whatsapp-card">
+            <img src="../assets/H3.svg" alt="Logo H3 " class="whatsapp-avatar" style="background-color: #000; padding: 10px;">
+            <h2 class="whatsapp-name">Gabriel Monteiro da Silva</h2>
+            <p class="whatsapp-description">Entre em contato conosco pelo WhatsApp para saber mais sobre como proteger sua família no ambiente digital.</p>
+            <a href="https://api.whatsapp.com/send/?phone=555391839463&text&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+                Iniciar Conversa no WhatsApp
+            </a>
+        </div>
+
+        <div class="contact-info">
+            <h3>Informações de Contato</h3>
+            <p>Email: biel.mtr3@gmail.com</p>
+            <p>Telefone: (53) 99183-9463</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

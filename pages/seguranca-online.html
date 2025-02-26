@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança Online - Consciência Digital</title>
+    <style>
+        /* Estilos base herdados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            color: #000;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        header a:hover {
+            text-decoration: none;
+            color: #000;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            color: #000;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        /* Estilos específicos da página */
+        .hero-section {
+            background: linear-gradient(rgba(49, 62, 75, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('../assets/security-bg.jpg');
+            color: rgb(255, 255, 255);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .threats-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .threat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .threat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .threat-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .threat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Incluir header e nav do template principal -->
+    <header>
+        <h1><a href="../index.html">Consciência Digital</a></h1>
+        <p>Seu guia para segurança digital e controle parental</p>
+    </header>
+
+    
+
+    <main>
+        <section class="hero-section">
+            <h1>Segurança Online</h1>
+            <p class="intro-text">
+                No mundo digital de hoje, a internet se tornou parte integrante de nossas vidas e das vidas de nossos filhos. 
+                Embora ofereça inúmeras oportunidades de aprendizado e conexão, o ambiente online também apresenta desafios e 
+                riscos significativos. Descubra como proteger sua família e navegar no mundo digital com confiança e segurança.
+            </p>
+        </section>
+
+        <section class="threats-section">
+            <h2>Principais Ameaças Online</h2>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <div class="threat-icon">🎮</div>
+                    <h3>Jogos Online</h3>
+                    <p>Riscos de exposição a conteúdo inadequado, cyberbullying e predadores online em plataformas de jogos.</p>
+                </div>
+
+                <div class="threat-card">
+                    <div class="threat-icon">💬</div>
+                    <h3>Redes Sociais</h3>
+                    <p>Exposição excessiva, compartilhamento de dados pessoais e contato com estranhos em redes sociais.</p>
+                </div>
+
+                <div class="threat-card">
+                    <div class="threat-icon">🔒</div>
+                    <h3>Privacidade de Dados</h3>
+                    <p>Vazamento de informações pessoais, roubo de identidade e ameaças à privacidade digital.</p>
+                </div>
+
+                <div class="threat-card">
+                    <div class="threat-icon">⚠️</div>
+                    <h3>Cyberbullying</h3>
+                    <p>Assédio online, intimidação e comportamentos prejudiciais através de plataformas digitais.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
