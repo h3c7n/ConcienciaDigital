@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Segurança Online - Consciência Digital</title>
+    <link rel="stylesheet" href="../style.css">
     <style>
         /* Estilos base herdados */
         * {
@@ -265,13 +266,307 @@
         body.modal-open .threat-card:hover {
             transform: none;
         }
+
+        .recommendations-section {
+            padding: 4rem 2rem;
+            background: white;
+            margin-top: 4rem;
+        }
+
+        .recommendations-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recommendation-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .recommendation-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('../assets/security-bg.jpg');
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .cta-button.primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .cta-button.primary:hover {
+            background: #2980b9;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+        }
+
+        .research-section {
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .statistics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .statistic-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .research-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .source-tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #e1e1e1;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0.25rem;
+        }
+
+        .data-table-container {
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 0;
+        }
+
+        .data-table th, .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid #e1e1e1;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .recommendations-content {
+                padding: 1rem;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .recommendation-card {
+                padding: 1.5rem;
+            }
+
+            .recommendation-card h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .bullet-list li {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .section-intro {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .statistics-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .statistic-card {
+                padding: 1.5rem;
+            }
+
+            .research-content {
+                padding: 1rem;
+            }
+
+            .data-table-container {
+                overflow-x: auto;
+                margin: 1.5rem 0;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .data-table {
+                display: block;
+            }
+
+            .data-table thead {
+                display: none; /* Hide original headers on mobile */
+            }
+
+            .data-table tbody, .data-table tr {
+                display: block;
+                width: 100%;
+            }
+
+            .data-table td {
+                display: flex;
+                padding: 0.8rem;
+                align-items: center;
+                border: none;
+                border-bottom: 1px solid #e1e1e1;
+            }
+
+            .data-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                width: 50%;
+                margin-right: 1rem;
+                color: #2c3e50;
+            }
+
+            .data-table tr {
+                margin-bottom: 1rem;
+                background: white;
+                border: 1px solid #e1e1e1;
+                border-radius: 8px;
+            }
+
+            .data-table tr:last-child td:last-child {
+                border-bottom: none;
+            }
+
+            .threats-grid {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+
+            .threat-card {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .recommendation-card {
+                padding: 1rem;
+            }
+
+            .bullet-list {
+                padding-left: 1.2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Incluir header e nav do template principal -->
-    <header>
-        <h1><a href="../index.html">Consciência Digital</a></h1>
-        <p>Seu guia para segurança digital e controle parental</p>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="../assets/H3.svg" alt="Consciência Digital Logo" class="logo">
+                <a href="../index.html" class="site-title">Consciência Digital</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Início</a></li>
+                    <li><a href="seguranca-online.html" class="nav-link active">Segurança Digital</a></li>
+                    <li><a href="sobre.html" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     
@@ -280,9 +575,7 @@
         <section class="hero-section">
             <h1>Segurança Online</h1>
             <p class="intro-text">
-                No mundo digital de hoje, a internet se tornou parte integrante de nossas vidas e das vidas de nossos filhos. 
-                Embora ofereça inúmeras oportunidades de aprendizado e conexão, o ambiente online também apresenta desafios e 
-                riscos significativos. Descubra como proteger sua família e navegar no mundo digital com confiança e segurança.
+                Nossos filhos crescem conectados: a internet é aprendizado e união.  Porém, a segurança online é crucial.  Prepare sua família para navegar com confiança e evite perigos digitais.
             </p>
         </section>
 
@@ -435,7 +728,7 @@
                         <h4>Proteção de Dados Pessoais</h4>
                         
                         <div class="sub-section">
-                            <h5>Segurança de Dados</h5>
+                            <h5>Segurança de Dados</h6>
                             <h6>Ameaças Comuns:</h6>
                             <ul class="bullet-list">
                                 <li>Roubo de identidade digital</li>
@@ -477,7 +770,7 @@
                         <h4>Combate ao Cyberbullying</h4>
                         
                         <div class="sub-section">
-                            <h5>Identificação e Prevenção</h5>
+                            <h5>Identificação e Prevenção</h6>
                             <h6>Formas de Cyberbullying:</h6>
                             <ul class="bullet-list">
                                 <li>Mensagens de ódio e ameaças</li>
@@ -512,13 +805,164 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Adicionar overlay fora dos cards -->
+        <section class="recommendations-section">
+            <div class="recommendations-content">
+                <h2>Recomendações Gerais para Pais</h2>
+                <p class="section-intro">Navegando no Mundo dos Jogos Online com Segurança</p>
+                
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <h4>Supervisão e Diálogo</h4>
+                        <ul class="bullet-list">
+                            <li>Mantenha comunicação aberta sobre experiências online</li>
+                            <li>Participe ativamente da vida digital dos filhos</li>
+                            <li>Crie um ambiente de confiança para relatar problemas</li>
+                            <li>Esteja disponível para conversar sobre preocupações</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4>Configurações e Controles</h4>
+                        <ul class="bullet-list">
+                            <li>Verifique classificações etárias dos jogos</li>
+                            <li>Configure controles parentais em todos dispositivos</li>
+                            <li>Ajuste configurações de privacidade</li>
+                            <li>Monitore tempo de tela e gastos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <h4>Equilíbrio Digital</h4>
+                        <ul class="bullet-list">
+                            <li>Estabeleça limites claros de tempo</li>
+                            <li>Incentive atividades offline</li>
+                            <li>Promova interações sociais presenciais</li>
+                            <li>Mantenha rotinas saudáveis de sono</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-section">
+            <div class="research-container">
+                <h2>Pesquisa e Dados</h2>
+                
+                <div class="statistics-grid">
+                    <div class="statistic-card">
+                        <div class="stat-number">93%</div>
+                        <p>das crianças e adolescentes brasileiros entre 9-17 anos estão conectados</p>
+                        <span class="source-tag">TIC Kids Online Brasil 2024</span>
+                    </div>
+                    
+                    <div class="statistic-card">
+                        <div class="stat-number">29%</div>
+                        <p>já vivenciaram situações ofensivas ou acessaram materiais impróprios online</p>
+                        <span class="source-tag">Pesquisa Nacional</span>
+                    </div>
+                    
+                    <div class="statistic-card">
+                        <div class="stat-number">24%</div>
+                        <p>das crianças iniciaram sua jornada digital antes dos 6 anos</p>
+                        <span class="source-tag">TIC Kids Online</span>
+                    </div>
+                </div>
+
+                <div class="research-content">
+                    <h3>Exposição Digital na Infância Brasileira</h3>
+                    
+                    <h4>Disparidades Regionais</h4>
+                    <div class="data-table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Região</th>
+                                    <th>Taxa de Conectividade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Região">Sul</td>
+                                    <td data-label="Taxa de Conectividade">98%</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Região">Norte</td>
+                                    <td data-label="Taxa de Conectividade">85%</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Região">Classes A/B</td>
+                                    <td data-label="Taxa de Conectividade">99%</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Região">Classes D/E</td>
+                                    <td data-label="Taxa de Conectividade">91%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>Alerta:</strong> 37% dos usuários infantis relatam contato involuntário com material inadequado através de pop-ups e redirecionamentos.
+                    </div>
+
+                    <h4>Impactos no Desenvolvimento</h4>
+                    <ul class="bullet-list">
+                        <li>Redução de 22% na capacidade de leitura profunda</li>
+                        <li>Queda de 15% no tempo médio de atenção sustentada</li>
+                        <li>Aumento de 30% nos episódios de ansiedade por separação tecnológica</li>
+                    </ul>
+
+                    <h4>Resultados do Programa Consciência Digital</h4>
+                    <div class="statistics-grid">
+                        <div class="statistic-card">
+                            <div class="stat-number">42%</div>
+                            <p>Redução em acessos acidentais a conteúdos impróprios</p>
+                        </div>
+                        <div class="statistic-card">
+                            <div class="stat-number">58%</div>
+                            <p>Aumento no uso de ferramentas de denúncia</p>
+                        </div>
+                        <div class="statistic-card">
+                            <div class="stat-number">33%</div>
+                            <p>Melhoria na comunicação familiar sobre segurança digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </section>
+</main>
+<divcionar overlay fora dos cards -->
     <div class="overlay"></div>
 
-    <footer>
-        <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+    <!-- Footer Component -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Consciência Digital</h4>
+                <p>Seu guia para segurança digital e controle parental</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📱</a>
+                    <a href="#" class="social-icon">📧</a>
+                    <a href="#" class="social-icon">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="seguranca-online.html">Segurança Digital</a></li>
+                    <li><a href="sobre.html">Sobre Nós</li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1)">
+            <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script>
