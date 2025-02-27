@@ -20,63 +20,6 @@
             background-color: #f5f6fa;
         }
 
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        nav {
-            background: #34495e;
-            padding: 1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-            font-size: 16px;
-            white-space: nowrap;
-        }
-
-        nav a:hover {
-            background: #2c3e50;
-            transform: translateY(-2px);
-        }
-
-        @media screen and (max-width: 768px) {
-            nav ul {
-                gap: 0.5rem;
-            }
-
-            nav a {
-                padding: 0.3rem 0.7rem;
-                font-size: 14px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            nav ul {
-                gap: 0.3rem;
-            }
-
-            nav a {
-                padding: 0.2rem 0.5rem;
-                font-size: 13px;
-            }
-        }
-
         .main-content {
             max-width: 1200px;
             margin: 2rem auto;
@@ -219,22 +162,26 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/faq.css">
 </head>
 <body>
-    <header>
-        <h1><a href="index.html">Consciência Digital</a></h1>
-        <p>Seu guia para segurança digital e controle parental</p>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="assets/H3.svg" alt="Consciência Digital Logo" class="logo">
+                <a href="index.html" class="site-title">Consciência Digital</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Início</a></li>
+                    <li><a href="pages/seguranca-online.html" class="nav-link">Segurança Digital</a></li>
+                    <li><a href="pages/sobre.html" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="pages/contato.html" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-    <nav>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="pages/seguranca-online.html">Segurança Digital</a></li>
-            <li><a href="pages/sobre.html">Sobre Nós</a></li>
-            <li><a href="pages/contato.html">Contato</a></li>
-        </ul>
-    </nav>
 
     <main class="main-content">
         <section id="inicio">
@@ -341,9 +288,36 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
-    </footer>
+    <divcionar overlay fora dos cards -->
+        <div class="overlay"></div>
+    
+        <!-- Footer Component -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Consciência Digital</h4>
+                    <p>Seu guia para segurança digital e controle parental</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">📱</a>
+                        <a href="#" class="social-icon">📧</a>
+                        <a href="#" class="social-icon">💬</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="seguranca-online.html">Segurança Digital</a></li>
+                        <li><a href="sobre.html">Sobre Nós</li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1)">
+                <p>&copy; 2024 Consciência Digital. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    
     <script src="js/faq.js"></script>
 </body>
 </html>
